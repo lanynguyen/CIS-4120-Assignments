@@ -1,0 +1,133 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+.app-container {
+    max-width: 400px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #f0e68c, #e0ffff);
+}
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px 10px;
+    background-color: white;
+}
+.logo {
+    font-size: 20px;
+    font-family: Aboreto;
+    font-weight: bold;
+}
+.icon {
+    font-size: 20px;
+}
+.location-select {
+    margin: 20px auto;
+    font-size: 24px;
+    font-family: Tenor Sans;
+    text-align: center;
+    width: 100%;
+}
+.info-card {
+    background-color: #1e2032;
+    color: white;
+    margin: 0 20px;
+    padding: 60px;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: Tenor Sans;
+}
+
+#precipitationScreen .info-card { 
+    background-color: #026aa7; 
+}
+#airQualityScreen .info-card { 
+    background-color: #2e7d32; 
+}
+#uvScreen .info-card { 
+    background-color: #bf360c; 
+}
+#temperatureScreen .info-card { 
+    background-color: #1e2032; 
+}
+.main-value {
+    font-size: 48px;
+    font-family: Tenor Sans;
+    margin: 10px 0;
+}
+.sub-value {
+    font-size: 24px;
+    font-family: Tenor Sans;
+    margin: 10px 0;
+}
+.tip-card {
+    background-color: #e6f3ff;
+    color: #1e2032;
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+#temperatureScreen .tip-card { 
+    background-color: #B9D4FC; 
+}
+#uvScreen .tip-card { 
+    background-color: #FCD9B9; 
+}
+#airQualityScreen .tip-card { 
+    background-color: #D3FCB9; 
+}
+#precipitationScreen .tip-card { 
+    background-color: #B9F4FC; 
+}
+.tip-icon {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+.next-page {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+}
+.prev-page {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+}
+.bottom-nav {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px 30px;
+    background-color: white;
+}
+.nav-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+.screen {
+    display: none;
+}
+.screen.active {
+    display: block;
+}
