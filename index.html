@@ -1,0 +1,118 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Lan's CoolWeather </title>
+        <link rel="stylesheet" href="style.css">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Gayathri:wght@100;400;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="app-container">
+            <nav class="top-nav">
+                <span class="icon">🔔</span>
+                <span class="logo">COOLWEATHER</span>
+                <span class="icon">⚙️</span>
+            </nav>
+            
+            <div class="location-select">
+                Philadelphia ▼
+            </div>
+            
+            <div id="temperatureScreen" class="screen active">
+                <div class="info-card">
+                    <div>Temperature</div>
+                    <div class="main-value">20°</div>
+                    <div>Feels like</div>
+                    <div class="sub-value">16°</div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🧥</span>
+                        <span>It's chilly today! Wear a jacket!</span>
+                    </div>
+                    <span class="prev-page" onclick="prevScreen()">◀</span>
+                    <span class="next-page" onclick="nextScreen()">▶</span>
+                </div>
+            </div>
+    
+            <div id="uvScreen" class="screen">
+                <div class="info-card">
+                    <div>UV Index</div>
+                    <div class="main-value">4</div>
+                    <div class="sub-value">High</div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🕒</span>
+                        <span>Best time today to be outdoors is 10 AM - 12 PM!</span>
+                        <span class="tip-icon">🧴</span>
+                        <span>Wear sunscreen!</span>
+                    </div>
+                    <span class="prev-page" onclick="prevScreen()">◀</span>
+                    <span class="next-page" onclick="nextScreen()">▶</span>
+                </div>
+            </div>
+    
+            <div id="airQualityScreen" class="screen">
+                <div class="info-card">
+                    <div>Air Quality</div>
+                    <div class="main-value">30</div>
+                    <div class="sub-value">Good</div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🕒</span>
+                        <span>Best time today to be outdoors is 10 AM - 12 PM!</span>
+                        <span class="tip-icon">😷</span>
+                        <span>Masks are optional right now!</span>
+                    </div>
+                    <span class="prev-page" onclick="prevScreen()">◀</span>
+                    <span class="next-page" onclick="nextScreen()">▶</span>
+                </div>
+            </div>
+    
+            <div id="precipitationScreen" class="screen">
+                <div class="info-card">
+                    <div>Precipitation</div>
+                    <div class="main-value">0 in</div>
+                    <div class="sub-value">Expected Today</div>
+                    <div class="tip-card">
+                        <span class="tip-icon">☀️</span>
+                        <span>No rain is forecasted today! Go wild!</span>
+                        <span class="tip-icon">☂️</span>
+                        <span>Bringing an umbrella is optional!</span>
+                    </div>
+                    <span class="prev-page" onclick="prevScreen()">◀</span>
+                    <span class="next-page" onclick="nextScreen()">▶</span>
+                </div>
+            </div>
+            
+            <nav class="bottom-nav">
+                <span class="nav-icon" onclick="showScreen('temperatureScreen')">🌡️</span>
+                <span class="nav-icon" onclick="showScreen('uvScreen')">☀️</span>
+                <span class="nav-icon" onclick="showScreen('airQualityScreen')">💨</span>
+                <span class="nav-icon" onclick="showScreen('precipitationScreen')">💧</span>
+                <span class="nav-icon">➕</span>
+            </nav>
+        </div>
+    
+        <script>
+            const screens = ['temperatureScreen', 'uvScreen', 'airQualityScreen', 'precipitationScreen'];
+            let currentScreenIndex = 0;
+    
+            function nextScreen() {
+                currentScreenIndex = (currentScreenIndex + 1) % screens.length;
+                showScreen(screens[currentScreenIndex]);
+            }
+            function prevScreen() {
+                currentScreenIndex = (currentScreenIndex - 1 + screens.length) % screens.length;
+                showScreen(screens[currentScreenIndex]);
+            }
+            function showScreen(screenId) {
+                screens.forEach(screen => {
+                    document.getElementById(screen).classList.remove('active');
+                });
+                document.getElementById(screenId).classList.add('active');
+                currentScreenIndex = screens.indexOf(screenId);
+            }
+        </script>
+    </body>
+</html>
